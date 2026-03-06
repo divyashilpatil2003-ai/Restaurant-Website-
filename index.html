@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Restaurant</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.min.css">
+ <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">MyRestaurant</a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+            <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero text-center py-5 bg-dark text-white">
+    <div class="container">
+      <h1>Welcome to My Restaurant</h1>
+      <p>Delicious food, cozy atmosphere</p>
+    </div>
+  </section>
+
+  <main>
+
+    <!-- ABOUT -->
+    <section id="about" class="container py-5">
+      <h2 class="text-center">About Us</h2>
+      <p class="text-center">We serve the best food with fresh ingredients.</p>
+    </section>
+
+    <!-- MENU -->
+    <section id="menu" class="container py-5">
+      <h2 class="text-center mb-4">Our Menu</h2>
+
+      <div class="menu-tabs text-center mb-4">
+       <button class="tab-btn active" data-category="starters">Starters</button>
+       <button class="tab-btn" data-category="main">Main Course</button>
+      <button class="tab-btn" data-category="desserts">Desserts</button>
+      </div>
+
+     <div class="row">
+
+  <div class="col-md-4">
+    <div class="card menu-card" data-category="starters">
+      <img src="images/food1.jpg"class="card-img-top" alt=">   
+      <div class="card-body">
+        <h5>Paneer Tikka</h5>
+        <p>Grilled cottage cheese</p>
+        <span class="price">₹250</span>
+        <div class="diet veg">● Veg</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card menu-card" data-category="main">
+      <img src="images/food2.jpg" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Butter Chicken</h5>
+        <p>Creamy tomato gravy</p>
+        <span class="price">₹350</span>
+        <div class="diet nonveg">● Non-Veg</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card menu-card" data-category="desserts">
+      <img src="images/food3.jpg" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Chocolate Lava Cake</h5>
+        <p>Warm chocolate dessert</p>
+        <span class="price">₹180</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="container py-5">
+      <h2 class="text-center mb-4">Gallery</h2>
+
+      <div class="row g-3">
+        <div class="col-md-4">
+          <img src="images/gallery1.jpg" class="gallery-img" loading="lazy">
+        </div>
+        <div class="col-md-4">
+          <img src="images/gallery2.jpg" class="gallery-img" loading="lazy">
+        </div>
+        <div class="col-md-4">
+          <img src="images/gallery3.jpg" class="gallery-img" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox">
+      <span class="close">&times;</span>
+      <img class="lightbox-content">
+    </div>
+
+    <!-- OFFERS -->
+  <section class="offers py-5">
+  <div class="container text-center">
+    
+    <h2>Today's Special</h2>
+
+    <div class="badge">HOT DEAL</div>
+      <h4>50% Off on Pizza</h4>
+      <p>Offer ends in <span id="countdown"></span></p>
+    </div>
+
+
+</section>
+<!-- Reservation Section -->
+
+<section id="reservation" class="container py-5" data-aos="fade-up">
+
+<h2 class="text-center mb-4">Book a Table</h2>
+
+<form id="bookingForm" class="reservation-form">
+
+<div class="row g-3">
+
+<div class="col-md-6">
+<input type="text" id="name" class="form-control" placeholder="Your Name">
+<small class="error" id="nameError"></small>
+</div>
+
+<div class="col-md-6">
+<input type="email" id="email" class="form-control" placeholder="Email">
+<small class="error" id="emailError"></small>
+</div>
+
+<div class="col-md-6">
+<input type="tel" id="phone" class="form-control" placeholder="Phone">
+<small class="error" id="phoneError"></small>
+</div>
+
+<div class="col-md-6">
+<input type="number" id="guests" class="form-control" placeholder="Guests">
+<small class="error" id="guestError"></small>
+</div>
+
+<div class="col-md-6">
+<input type="date" id="date" class="form-control">
+<small class="error" id="dateError"></small>
+</div>
+
+<div class="col-md-6">
+<input type="time" id="time" class="form-control">
+<small class="error" id="timeError"></small>
+</div>
+
+</div>
+
+<div class="text-center mt-4">
+<button type="submit" class="btn btn-danger book-btn">
+Reserve Table
+</button>
+</div>
+
+<p id="successMsg" class="text-success text-center mt-3"></p>
+
+</form>
+
+</section>
+<h3 class="text-center mt-5">Bookings List</h3>
+
+<ul id="bookingList" class="list-group mt-3"></ul>
+<!-- Restaurant Info -->
+<section class="restaurant-info py-5">
+  <div class="container">
+
+    <h2 class="text-center mb-4">Visit Us</h2>
+
+    <!-- GOOGLE MAP -->
+    <div class="map mb-4">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18..."
+        width="100%" 
+        height="300" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <!-- OPENING HOURS -->
+    <div class="opening-hours text-center">
+      <h4>Opening Hours</h4>
+      <p>Mon - Fri : 10:00 AM - 10:00 PM</p>
+      <p>Sat - Sun : 11:00 AM - 11:30 PM</p>
+    </div>
+
+  </div>
+</section>
+
+    <!-- CONTACT -->
+   <section id="contact" class="container py-5 text-center">
+
+  <h2>Contact Us</h2>
+
+  <p class="mt-3"><strong>Phone:</strong> +91 98765 43210</p>
+
+  <p><strong>Email:</strong> info@restaurant.com</p>
+
+  <p>
+    <strong>Instagram:</strong>
+    <a href="https://instagram.com/" target="_blank">Follow Us</a>
+  </p>
+
+  <p>
+    <strong>LinkedIn:</strong>
+    <a href="https://linkedin.com/" target="_blank">Visit Profile</a>
+  </p>
+  <div class="social-icons mt-3">
+
+<a href="https://instagram.com" target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="https://facebook.com" target="_blank">
+<i class="fab fa-facebook"></i>
+</a>
+
+<a href="https://linkedin.com" target="_blank">
+<i class="fab fa-linkedin"></i>
+</a>
+
+<a href="https://twitter.com" target="_blank">
+<i class="fab fa-twitter"></i>
+</a>
+
+</div>
+
+</section>
+<!-- TESTIMONIALS -->
+<section class="testimonials py-5 bg-light">
+<div class="container text-center">
+
+<h2 class="mb-4">What Our Customers Say</h2>
+
+<div class="row">
+
+<div class="col-md-4">
+<div class="testimonial-card">
+<p>"Amazing food and great service!"</p>
+<h5>- Rahul Patil</h5>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="testimonial-card">
+<p>"Best restaurant in the city."</p>
+<h5>- Sneha Kulkarni</h5>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="testimonial-card">
+<p>"Loved the ambience and taste."</p>
+<h5>- Amit Sharma</h5>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+
+
+<!-- AWARDS -->
+<section class="awards py-5 text-center">
+<div class="container">
+
+<h2 class="mb-4">Awards & Recognition</h2>
+
+<div class="row">
+
+<div class="col-md-4">
+<h4>🏆 Best Restaurant 2024</h4>
+</div>
+
+<div class="col-md-4">
+<h4>⭐ 5 Star Food Rating</h4>
+</div>
+
+<div class="col-md-4">
+<h4>🍽 Top Chef Award</h4>
+</div>
+
+</div>
+</div>
+</section>
+
+
+
+<!-- NEWSLETTER -->
+<section class="newsletter py-5 bg-dark text-white text-center">
+<div class="container">
+
+<h2>Subscribe for Special Offers</h2>
+
+<form class="row justify-content-center mt-3">
+
+<div class="col-md-4">
+<input type="email" class="form-control" placeholder="Enter your email">
+</div>
+
+<div class="col-md-2">
+<button class="btn btn-danger">Subscribe</button>
+</div>
+
+</form>
+
+</div>
+</section>
+
+
+
+<!-- FOOTER -->
+<footer class="footer py-4">
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-md-4">
+<h5>MyRestaurant</h5>
+<p>Best food with great taste and ambience.</p>
+</div>
+
+
+
+</div>
+</footer>
+
+  </main>
+
+  <footer class="text-center py-3 bg-dark text-white">
+    © 2026 MyRestaurant
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+ <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+AOS.init();
+</script>
+  <!-- Custom JS -->
+  <script src="js/script.js"></script>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+AOS.init();
+</script>
+</body>
+</html>                                                
